@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-import com.company.product.OverrideUnityActivity;
+import com.unity3d.player.UnityPlayerActivity;
 
-public class MainUnityActivity extends OverrideUnityActivity {
+//import com.company.product.OverrideUnityActivity;
+
+//public class MainUnityActivity extends OverrideUnityActivity {
+public class MainUnityActivity extends UnityPlayerActivity {
     // Setup activity layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class MainUnityActivity extends OverrideUnityActivity {
             }
     }
 
-    @Override
+    //@Override
     protected void showMainActivity(String setToColor) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -65,12 +68,12 @@ public class MainUnityActivity extends OverrideUnityActivity {
 
         {
             Button myButton = new Button(this);
-            myButton.setText("Send Msg");
+            myButton.setText("Next Filter");
             myButton.setX(320);
             myButton.setY(500);
             myButton.setOnClickListener( new View.OnClickListener() {
                 public void onClick(View v) {
-                    mUnityPlayer.UnitySendMessage("Cube", "ChangeColor", "yellow");
+                    mUnityPlayer.UnitySendMessage("FilterPlayer", "OnNextFilter", "");
                 }
             });
             layout.addView(myButton, 300, 200);
